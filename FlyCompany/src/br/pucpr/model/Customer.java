@@ -1,6 +1,16 @@
 package br.pucpr.model;
 
-public class Client {
+public class Customer {
+	private String name;
+	private Integer id;
+	private boolean status;
+	
+	public boolean isStatus() {
+		return status;
+	}
+	public void setStatus(boolean status) {
+		this.status = status;
+	}
 	public String getName() {
 		return name;
 	}
@@ -13,8 +23,5 @@ public class Client {
 	public void setId(Integer id) {
 		this.id = id;
 	}
-	private String name;
-	private Integer id;
-	
 	
 }

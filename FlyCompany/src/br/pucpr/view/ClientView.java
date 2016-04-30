@@ -1,18 +1,18 @@
 package br.pucpr.view;
 
-import br.pucpr.controller.ClientController;
-import br.pucpr.model.Client;
+import br.pucpr.controller.CustomerController;
+import br.pucpr.model.Customer;
 
 public class ClientView {
 	private boolean valid;
 	private String msg;
-	private Client c;
-	private ClientController control;
+	private Customer c;
+	private CustomerController control;
 
 	public ClientView(){
 		msg = "";
-		c = new Client();
-		control = new ClientController();
+		c = new Customer();
+		control = new CustomerController();
 	}
 	
 	public void validation(){
@@ -20,7 +20,7 @@ public class ClientView {
 	}
 	
 	public void btnSave(){
-		control.insertClient(c);
+		control.insertCustomer(c);
 	}
 	
 	public void showMsg(){

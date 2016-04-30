@@ -3,16 +3,16 @@ package br.pucpr.dao;
 import java.util.List;
 
 import br.pucpr.db.DBConnect;
-import br.pucpr.model.Client;
+import br.pucpr.model.Customer;
 
-public class ClientDAO {
+public class CustomerDAO {
 	private DBConnect db;
 	
-	public ClientDAO(){
+	public CustomerDAO(){
 		this.db = new DBConnect();
 	}
 	
-	public void insert(Client c){
+	public void insert(Customer c){
 		db.openConnect();
 		
 		db.executeSQL("SQL...");
@@ -20,7 +20,7 @@ public class ClientDAO {
 		db.closeConnect();
 	}
 	
-	public void update(Client c){
+	public void update(Customer c){
 		db.openConnect();
 		
 		db.executeSQL("SQL...");
@@ -28,7 +28,7 @@ public class ClientDAO {
 		db.closeConnect();
 	}
 	
-	public void remove(Client c){
+	public void remove(Customer c){
 		db.openConnect();
 		
 		db.executeSQL("SQL...");
@@ -36,7 +36,7 @@ public class ClientDAO {
 		db.closeConnect();
 	}
 	
-	public List<Client> findAll(){
+	public List<Customer> findAll(){
 		db.openConnect();
 		
 		List result = (List) db.executeSQL("SQL...");
@@ -46,10 +46,10 @@ public class ClientDAO {
 		return result;
 	}
 	
-	public Client findById(Integer id){
+	public Customer findById(Integer id){
 		db.openConnect();
 		
-		Client result = (Client) db.executeSQL("SQL...");
+		Customer result = (Customer) db.executeSQL("SQL...");
 		
 		db.closeConnect();
 		
