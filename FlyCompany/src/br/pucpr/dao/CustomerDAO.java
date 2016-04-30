@@ -55,4 +55,14 @@ public class CustomerDAO {
 		
 		return result;
 	}
+
+	public Customer findByName(String name) {
+		db.openConnect();
+		
+		Customer result = (Customer) db.executeSQL("SQL...");
+		
+		db.closeConnect();
+		
+		return result;
+	}
 }

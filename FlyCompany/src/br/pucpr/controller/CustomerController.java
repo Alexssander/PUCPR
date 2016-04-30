@@ -18,20 +18,29 @@ public class CustomerController {
 	
 	public void updateCustomer(Customer c){
 		Customer aux = dao.findById(c.getId());
-		aux.setName(c.getName());
 		
-		dao.update(aux);
+		if(aux != null){
+			aux.setName(c.getName());
+			dao.update(aux);
+		}
 	}
 	
 	public void removeCustomer(Customer c){
-		dao.remove(c);
+		Customer aux = dao.findById(c.getId());
+		
+		if(aux != null)		
+			dao.remove(c);
 	}
 	
-	public List<Customer> findAllClient(){
+	public List<Customer> findAllCustomer(){
 		return dao.findAll();
 	}
 	
-	public Customer findClientById(Integer id){
+	public Customer findCustomerById(Integer id){
 		return dao.findById(id);
+	}
+	
+	public Customer findCustomerByName(String name){
+		return dao.findByName(name);
 	}
 }

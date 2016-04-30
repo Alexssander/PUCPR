@@ -15,12 +15,44 @@ public class ClientView {
 		control = new CustomerController();
 	}
 	
-	public void validation(){
-		valid = true;
+	private void validation(){
+		if(c.getName() != null && c.getName().length() > 5)
+			valid = true;
+		else
+			valid= false;
 	}
 	
 	public void btnSave(){
-		control.insertCustomer(c);
+		validation();
+		
+		if(valid == true)
+			control.insertCustomer(c);
+		else
+			msg = "No no no";
+	}
+	
+	public void btnUpdate(){
+		validation();
+		
+		if(valid == true)
+			control.updateCustomer(c);
+		else
+			msg = "No no no";
+	}
+	
+	public void btnRemove(){
+		control.removeCustomer(c);
+	}
+	
+	public void loadCustomerList(){
+		control.findAllCustomer();
+	}
+	
+	public void btnSearch(){
+		if(c.getName() != null)
+			control.findCustomerByName(c.getName());
+		else
+			control.findAllCustomer();
 	}
 	
 	public void showMsg(){
