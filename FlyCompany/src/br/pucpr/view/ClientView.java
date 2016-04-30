@@ -24,7 +24,7 @@ public class ClientView {
 	}
 	
 	public void showMsg(){
-		
+		System.out.println("Message: " + msg);
 	}
 
 	public boolean isValid() {
