@@ -29,6 +29,8 @@ public class ClientView {
 			control.insertCustomer(c);
 		else
 			msg = "No no no";
+		
+		showMsg();
 	}
 	
 	public void btnUpdate(){
@@ -38,10 +40,14 @@ public class ClientView {
 			control.updateCustomer(c);
 		else
 			msg = "No no no";
+		
+		showMsg();
 	}
 	
 	public void btnRemove(){
 		control.removeCustomer(c);
+		
+		showMsg();
 	}
 	
 	public void loadCustomerList(){
