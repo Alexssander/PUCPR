@@ -1,15 +1,16 @@
 package br.pucpr.view;
 
 import br.pucpr.controller.CustomerController;
+import br.pucpr.exception.FlyException;
 import br.pucpr.model.Customer;
 
-public class ClientView {
+public class CustomerView {
 	private boolean valid;
 	private String msg;
 	private Customer c;
 	private CustomerController control;
 
-	public ClientView(){
+	public CustomerView(){
 		msg = "";
 		c = new Customer();
 		control = new CustomerController();
@@ -19,14 +20,18 @@ public class ClientView {
 		if(c.getName() != null && c.getName().length() > 5)
 			valid = true;
 		else
-			valid= false;
+			valid = false;
 	}
 	
 	public void btnSave(){
 		validation();
 		
 		if(valid == true)
-			control.insertCustomer(c);
+			try {
+				control.insertCustomer(c);
+			} catch (FlyException e) {
+				msg = e.getMessage();
+			}
 		else
 			msg = "No no no";
 		
@@ -37,7 +42,11 @@ public class ClientView {
 		validation();
 		
 		if(valid == true)
-			control.updateCustomer(c);
+			try {
+				control.updateCustomer(c);
+			} catch (FlyException e) {
+				msg = e.getMessage();
+			}
 		else
 			msg = "No no no";
 		
@@ -45,7 +54,11 @@ public class ClientView {
 	}
 	
 	public void btnRemove(){
-		control.removeCustomer(c);
+		try {
+			control.removeCustomer(c);
+		} catch (FlyException e) {
+			msg = e.getMessage();
+		}
 		
 		showMsg();
 	}
